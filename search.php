@@ -33,11 +33,13 @@ if($_REQUEST['submit']){
 
       if (mysqli_num_rows($result) > 0) {
           // output data of each row
+          echo "<h3>results for  ".  ucfirst($search) .":</h3>  ";
           while($row = mysqli_fetch_assoc($result)) {
-              echo "Username: " . $row["username"]. " - Name: " . $row["name"]. " Last Name  " . $row["last"]. "<br>";
+
+              echo "<div classe='srchcontent'> Username: " . $row["username"]. " <br> Name: " . $row["name"]. "<br> Last Name  " . $row["last"]. "</div>";
                 }
       } else {
-          echo "No results for $search";
+          echo "<h3> No results for  ".  ucfirst($search) ."</h3> <br> <br>";
             }
 }
  ?>
