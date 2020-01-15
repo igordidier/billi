@@ -9,7 +9,8 @@
   <div class="header">
   	<h2>Register</h2>
   </div>
-
+  <img class="rightbanner" src="img/rightbanner.jpg" alt="rooftop">
+  <img class="leftbanner" src="img/leftbanner.jpg" alt="rooftop">
   <form method="post" action="register.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
@@ -43,5 +44,6 @@
   		Already a member? <a href="login.php">Sign in</a>
   	</p>
   </form>
+  <img class="logo" src="img/billioni.png" alt="logo">
 </body>
 </html>

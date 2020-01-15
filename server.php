@@ -60,11 +60,18 @@ if (isset($_POST['reg_user'])) {
     	$query = "INSERT INTO users (username, email, password, name , last)
     			  VALUES('$username', '$email', '$password', '$name', '$last')";
     	mysqli_query($db, $query);
+
     	$_SESSION['username'] = $_POST['username'];
       $_SESSION['name'] = $_POST['name'];
       $_SESSION['last'] = $_POST['last'];
       $_SESSION['email'] = $_POST['email'];
 
+
+    	$_SESSION['username'] = $username;
+      $_SESSION['name'] = $name;
+      $_SESSION['last'] = $last;
+      $_SESSION['email'] = $email;
+a
     	$_SESSION['success'] = "You are now logged in";
     	header('location: index.php');
     }
@@ -86,18 +93,42 @@ if (isset($_POST['login_user'])) {
 
   if (count($errors) == 0) {
   	$password = md5($password);
-  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password' ";
   	$results = mysqli_query($db, $query);
+    $ligne = $results->fetch_assoc();
   	if (mysqli_num_rows($results) == 1) {
+
   	  $_SESSION['username'] = $username;
       $_SESSION['name'] = $name;
       $_SESSION['last'] = $last;
       $_SESSION['email'] = $email;
+
+      $_SESSION['username'] = $username;
+      $_SESSION['last'] = $ligne['last'];
+      $_SESSION['name'] = $ligne['name'];
+      $_SESSION['email'] = $ligne['email'];
+
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: index.php');
   	}else {
   		array_push($errors, "Wrong username/password combination");
   	}
+  }
+}
+
+//search engin
+
+if (isset($_POST['search'])) {
+  $sql = "SELECT username, email, name, last FROM users";
+  $result = mysqli_query($db, $sql);
+
+  if (mysqli_num_rows($result) > 0) {
+      // output data of each row
+      while($row = mysqli_fetch_assoc($result)) {
+          echo "Username: " . $row["username"]. " - Name: " . $row["name"]. " " . $row["last"]. "<br>";
+      }
+  } else {
+      echo "0 results";
   }
 }
 

@@ -1,5 +1,5 @@
 <?php
-  session_start();
+ include('server.php') ;
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -21,9 +21,14 @@
 <body>
   <?php include "header.php"; ?>
 
+
   <h1><?php echo ucfirst("$_SESSION[name]"); ?></h1>
 
 <h2>Information du compte:</h2>
+
+<h1><?php echo ucfirst("$_SESSION[username]"); ?></h1>
+  <h2>Information du compte:</h2>
+
 <br>
 <p>Email: <?php echo "$_SESSION[email]"; ?></p>
 <br>
