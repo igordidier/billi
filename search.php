@@ -22,26 +22,27 @@
 <body>
   <?php include "header.php"; ?>
 
-  <?php
+<div class="searchcontainer">
 
+
+  <?php
 if($_REQUEST['submit']){
-  $search = $_POST['srch'];
+  $search = $_GET['search'];
   $sql = "SELECT username, email, name, last FROM users WHERE username LIKE '%$search%' ";
       $result = mysqli_query($db, $sql);
 
       if (mysqli_num_rows($result) > 0) {
           // output data of each row
           while($row = mysqli_fetch_assoc($result)) {
-              echo "Username: " . $row["username"]. " - Name: " . $row["name"]. " " . $row["last"]. "<br>";
-          }
+              echo "Username: " . $row["username"]. " - Name: " . $row["name"]. " Last Name  " . $row["last"]. "<br>";
+                }
       } else {
-          echo "0 results";
-      }
-
+          echo "No results for $search";
+            }
 }
  ?>
 
-
+</div>
 
 </body>
 </html>

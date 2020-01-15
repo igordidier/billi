@@ -6,7 +6,7 @@ body {
 }
 
 .header {
-  
+
 
   color: white;
   background: black;
@@ -165,4 +165,19 @@ input[type=date] {
   float: left;
     display: flex;
     width: 30%;
+}
+
+#srchbtn{
+  color: darkseagreen;
+background-color: white;
+border: 1px solid darkseagreen;
+padding: 7px;
+margin: auto;
+border-radius: 10px;
+
+}
+
+#srchbox{
+  border-radius: 10px;
+    padding: 10px;
 }

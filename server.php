@@ -66,12 +66,6 @@ if (isset($_POST['reg_user'])) {
       $_SESSION['last'] = $_POST['last'];
       $_SESSION['email'] = $_POST['email'];
 
-
-    	$_SESSION['username'] = $username;
-      $_SESSION['name'] = $name;
-      $_SESSION['last'] = $last;
-      $_SESSION['email'] = $email;
-a
     	$_SESSION['success'] = "You are now logged in";
     	header('location: index.php');
     }
@@ -97,11 +91,6 @@ if (isset($_POST['login_user'])) {
   	$results = mysqli_query($db, $query);
     $ligne = $results->fetch_assoc();
   	if (mysqli_num_rows($results) == 1) {
-
-  	  $_SESSION['username'] = $username;
-      $_SESSION['name'] = $name;
-      $_SESSION['last'] = $last;
-      $_SESSION['email'] = $email;
 
       $_SESSION['username'] = $username;
       $_SESSION['last'] = $ligne['last'];

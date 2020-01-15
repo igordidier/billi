@@ -22,9 +22,7 @@
   <?php include "header.php"; ?>
 
 
-  <h1><?php echo ucfirst("$_SESSION[name]"); ?></h1>
 
-<h2>Information du compte:</h2>
 
 <h1><?php echo ucfirst("$_SESSION[username]"); ?></h1>
   <h2>Information du compte:</h2>
