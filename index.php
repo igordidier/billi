@@ -19,7 +19,7 @@
   <?php include "boot.html"; ?>
 </head>
 <body>
-<?php include "header.html"; ?>
+<?php include "header.php"; ?>
 
 
   	 <!-- notification message -->
