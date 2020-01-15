@@ -60,8 +60,11 @@ if (isset($_POST['reg_user'])) {
     	$query = "INSERT INTO users (username, email, password, name , last)
     			  VALUES('$username', '$email', '$password', '$name', '$last')";
     	mysqli_query($db, $query);
-    	$_SESSION['username'] = $username;
-      $_SESSION['name'] = $name;
+    	$_SESSION['username'] = $_POST['username'];
+      $_SESSION['name'] = $_POST['name'];
+      $_SESSION['last'] = $_POST['last'];
+      $_SESSION['email'] = $_POST['email'];
+
     	$_SESSION['success'] = "You are now logged in";
     	header('location: index.php');
     }
@@ -88,6 +91,8 @@ if (isset($_POST['login_user'])) {
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $username;
       $_SESSION['name'] = $name;
+      $_SESSION['last'] = $last;
+      $_SESSION['email'] = $email;
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: index.php');
   	}else {
