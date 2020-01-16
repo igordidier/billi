@@ -15,8 +15,7 @@ body {
    border-bottom: none;
    border-radius: 50px 50px 0px 0px;
    padding: 20px;
-   position: fixed;
-width: 100%;
+   
 }
 form, .content {
   width: 30%;

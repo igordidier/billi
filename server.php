@@ -57,14 +57,16 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
     	$password = md5($password_1);//encrypt the password before saving in the database
 
-    	$query = "INSERT INTO users (username, email, password, name , last)
-    			  VALUES('$username', '$email', '$password', '$name', '$last')";
+    	$query = "INSERT INTO users (username, email, password, name , last,ppimage,bio)
+    			  VALUES('$username', '$email', '$password', '$name', '$last','avatar.png','')";
     	mysqli_query($db, $query);
 
     	$_SESSION['username'] = $_POST['username'];
       $_SESSION['name'] = $_POST['name'];
       $_SESSION['last'] = $_POST['last'];
       $_SESSION['email'] = $_POST['email'];
+      $_SESSION['ppimage'] = "avatar.png";
+
 
     	$_SESSION['success'] = "You are now logged in";
     	header('location: index.php');
@@ -92,10 +94,13 @@ if (isset($_POST['login_user'])) {
     $ligne = $results->fetch_assoc();
   	if (mysqli_num_rows($results) == 1) {
 
+      $_SESSION['id'] = $ligne['id'];
       $_SESSION['username'] = $username;
       $_SESSION['last'] = $ligne['last'];
       $_SESSION['name'] = $ligne['name'];
       $_SESSION['email'] = $ligne['email'];
+      $_SESSION['ppimage'] = $ligne['ppimage'];
+      $_SESSION['bio'] = $ligne['bio'];
 
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: index.php');
@@ -125,5 +130,52 @@ if (isset($_POST['search'])) {
 // $querycom = "INSERT INTO idea (title, comment, date)
 //       VALUES('$title', '$content', '$date')";
 // mysqli_query($db, $querycom);
+
+
+
+//profile picture
+
+// if (isset($_POST['save_profile'])) {
+//     // for the database
+//     $bio = stripslashes($_POST['bio']);
+//     $profileImageName = time() . '-' . $_FILES["profileImage"]["name"];
+//     // For image upload
+//     $target_dir = "images/";
+//     $target_file = $target_dir . basename($profileImageName);
+//     // VALIDATION
+//     // validate image size. Size is calculated in Bytes
+//     if($_FILES['profileImage']['size'] > 200000) {
+//       $msg = "Image size should not be greated than 200Kb";
+//       $msg_class = "alert-danger";
+//     }
+//     // check if file exists
+//     if(file_exists($target_file)) {
+//       $msg = "File already exists";
+//       $msg_class = "alert-danger";
+//     }
+//     // Upload image only if no errors
+//     if (empty($error)) {
+//       if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) {
+//         $sql = "INSERT INTO users SET profile_image='$profileImageName', bio='$bio'";
+//         if(mysqli_query($db, $sql)){
+//           $msg = "Image uploaded and saved in the Database";
+//           $msg_class = "alert-success";
+//         } else {
+//           $msg = "There was an error in the database";
+//           $msg_class = "alert-danger";
+//         }
+//       } else {
+//         $error = "There was an erro uploading the file";
+//         $msg = "alert-danger";
+//       }
+//     }
+//   }
+
+
+
+// if (isset($_POST['ppuploud'])) {
+//   $ppimgsql ="UPDATE users SET ppimgage='" .$_POST['ppimage']. "',
+//               where username = '" . $_SESSION['username'] . "' ";
+// }
 
 ?>
