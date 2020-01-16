@@ -21,7 +21,8 @@ include('server.php');
     // Upload image only if no errors
     if (empty($error)) {
       if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) {
-        $sql2 = "INSERT INTO users SET profile_image='$profileImageName', bio='$bio'";
+        $sql2 = "UPDATE users SET profile_image='$profileImageName', bio='$bio'
+                   where username = '" . $_SESSION['username'] . "' ";
         if(mysqli_query($db, $sql2)){
           $msg = "Image uploaded and saved in the Database";
           $msg_class = "alert-success";
@@ -45,7 +46,7 @@ include('server.php');
   <title>Image Preview and Upload PHP</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="index2.css">
 </head>
 <body>
   <!-- <?php include "header.php"; ?> -->
@@ -60,7 +61,7 @@ include('server.php');
               <?php echo $msg; ?>
             </div>
           <?php endif; ?>
-          <div class="form-group text-center" style="position: relative;" >
+          <div class="form-group text-center"  >
             <span class="img-div">
               <div class="text-center img-placeholder"  onClick="triggerClick()">
                 <h4>Update image</h4>
