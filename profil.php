@@ -60,28 +60,10 @@
  ?>
 
 
-
-
-
-
-
-
-<form name="newad" method="post" enctype="multipart/form-data" action="">
-  <table>
-  <img style="margin:auto;display:flex;" src="ppimg/<?php echo "$_SESSION[ppimage] " ?>" width="200" height="200" />
-  <tr><td><input type="file" name="ppimage" required></td></tr>
-  <tr><td><input name="ppuploud" type="submit" value="Upload image"></td></tr>
-  <?php
-  if (isset($msg)) echo "<div style='color:white;text-align:center;background-color: red;width: 300px;margin: auto;border: 2px solid;border-radius: 25px;margin-top: 15px;'>$msg</div>";
-  ?>
-  </table>
-  </form>
-
-
   <div class="container">
       <div class="row">
         <div class="col-4 offset-md-4" style="margin-top: 30px;">
-          <a href="form.php" class="btn btn-success">New profile</a>
+          <a href="form.php" class="btn btn-success">Update Profile</a>
           <br>
           <br>
           <table class="table table-bordered">
@@ -92,9 +74,9 @@
             <tbody>
 
                 <tr>
-                  <td> <img style="margin:auto;display:flex;" src="ppimg/<?php echo "$_SESSION[ppimage] " ?>" width="200" height="200" /> </td>
+                  <td> <img style="margin:auto;display:flex;" src="ppimg/<?php echo "$_SESSION[profile_image] " ?>" width="200" height="200" /> </td>
                 </tr>
-              
+
             </tbody>
           </table>
         </div>

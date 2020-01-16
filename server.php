@@ -65,7 +65,7 @@ if (isset($_POST['reg_user'])) {
       $_SESSION['name'] = $_POST['name'];
       $_SESSION['last'] = $_POST['last'];
       $_SESSION['email'] = $_POST['email'];
-      $_SESSION['ppimage'] = "avatar.png";
+      $_SESSION['profile_image'] = "avatar.png";
 
 
     	$_SESSION['success'] = "You are now logged in";
@@ -99,7 +99,7 @@ if (isset($_POST['login_user'])) {
       $_SESSION['last'] = $ligne['last'];
       $_SESSION['name'] = $ligne['name'];
       $_SESSION['email'] = $ligne['email'];
-      $_SESSION['ppimage'] = $ligne['ppimage'];
+      $_SESSION['profile_image'] = $ligne['profile_image'];
       $_SESSION['bio'] = $ligne['bio'];
 
   	  $_SESSION['success'] = "You are now logged in";

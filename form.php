@@ -23,6 +23,8 @@ include('server.php');
       if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) {
         $sql2 = "UPDATE users SET profile_image='$profileImageName', bio='$bio'
                    where username = '" . $_SESSION['username'] . "' ";
+                   $_SESSION['profile_image'] = $profileImageName;
+                   $_SESSION['bio'] = $bio;
         if(mysqli_query($db, $sql2)){
           $msg = "Image uploaded and saved in the Database";
           $msg_class = "alert-success";
@@ -77,6 +79,7 @@ include('server.php');
           </div>
           <div class="form-group">
             <button type="submit" name="save_profile" class="btn btn-primary btn-block">Save User</button>
+              <a href="profil.php" class="btn btn-success">Back</a>
           </div>
         </form>
       </div>
