@@ -6,11 +6,11 @@ body {
 }
 
 .header {
-
-
   color: white;
   background: black;
   overflow: hidden;
+  position: fixed;
+width: 100%;
 }
 .header a {
   float: left;
