@@ -21,7 +21,13 @@
 <body>
   <?php include "header.php"; ?>
 
-
+  <form name="newad" method="post" enctype="multipart/form-data" action="">
+  <table>
+  <img style="margin-left:25px;" src="img/avatar.png" width="200" height="200" />
+  <tr><td><input type="file" name="image" ></td></tr>
+  <tr><td><input name="Submit" type="submit" value="Upload image"></td></tr>
+  </table>
+  </form>
 
 
 <h1><?php echo ucfirst("$_SESSION[username]"); ?></h1>
