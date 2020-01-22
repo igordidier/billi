@@ -9,6 +9,7 @@ body {
   color: white;
   background: black;
   overflow: hidden;
+      position: fixed;
 
 }
 .header a {
@@ -104,6 +105,7 @@ input[type=button], input[type=submit], input[type=reset] {
   display: flex;
     margin: auto;
     margin-top: 10px;
+    border-radius: 25px;
 }
 input[type=text] {
   width: 100%;
