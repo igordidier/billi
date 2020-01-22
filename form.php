@@ -75,7 +75,7 @@ include('server.php');
           </div>
           <div class="form-group">
             <label>Bio</label>
-            <textarea name="bio" class="form-control"></textarea>
+            <textarea  name="bio" class="form-control"></textarea>
           </div>
           <div class="form-group">
             <button type="submit" name="save_profile" class="btn btn-primary btn-block">Save User</button>
